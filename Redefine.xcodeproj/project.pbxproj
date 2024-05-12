@@ -15,6 +15,7 @@
 		C5C9D0362BF0F053002B9406 /* RedefineTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5C9D0352BF0F053002B9406 /* RedefineTests.swift */; };
 		C5C9D0402BF0F053002B9406 /* RedefineUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5C9D03F2BF0F053002B9406 /* RedefineUITests.swift */; };
 		C5C9D0422BF0F053002B9406 /* RedefineUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5C9D0412BF0F053002B9406 /* RedefineUITestsLaunchTests.swift */; };
+		C5C9D0512BF0F279002B9406 /* SpotifyiOS in Frameworks */ = {isa = PBXBuildFile; productRef = C5C9D0502BF0F279002B9406 /* SpotifyiOS */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,8 @@
 		C5C9D03B2BF0F053002B9406 /* RedefineUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RedefineUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C5C9D03F2BF0F053002B9406 /* RedefineUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedefineUITests.swift; sourceTree = "<group>"; };
 		C5C9D0412BF0F053002B9406 /* RedefineUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedefineUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		C5C9D0522BF0F31D002B9406 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		C5C9D0532BF0F471002B9406 /* Redefine-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Redefine-Bridging-Header.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +57,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C5C9D0512BF0F279002B9406 /* SpotifyiOS in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -81,6 +85,7 @@
 				C5C9D0342BF0F053002B9406 /* RedefineTests */,
 				C5C9D03E2BF0F053002B9406 /* RedefineUITests */,
 				C5C9D01F2BF0F051002B9406 /* Products */,
+				C5C9D04F2BF0F279002B9406 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -97,12 +102,14 @@
 		C5C9D0202BF0F051002B9406 /* Redefine */ = {
 			isa = PBXGroup;
 			children = (
+				C5C9D0522BF0F31D002B9406 /* Info.plist */,
 				C5C9D0212BF0F051002B9406 /* RedefineApp.swift */,
 				C5C9D0232BF0F051002B9406 /* ContentView.swift */,
 				C5C9D0252BF0F051002B9406 /* Item.swift */,
 				C5C9D0272BF0F052002B9406 /* Assets.xcassets */,
 				C5C9D0292BF0F052002B9406 /* Redefine.entitlements */,
 				C5C9D02A2BF0F052002B9406 /* Preview Content */,
+				C5C9D0532BF0F471002B9406 /* Redefine-Bridging-Header.h */,
 			);
 			path = Redefine;
 			sourceTree = "<group>";
@@ -132,6 +139,13 @@
 			path = RedefineUITests;
 			sourceTree = "<group>";
 		};
+		C5C9D04F2BF0F279002B9406 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -148,6 +162,9 @@
 			dependencies = (
 			);
 			name = Redefine;
+			packageProductDependencies = (
+				C5C9D0502BF0F279002B9406 /* SpotifyiOS */,
+			);
 			productName = Redefine;
 			productReference = C5C9D01E2BF0F051002B9406 /* Redefine.app */;
 			productType = "com.apple.product-type.application";
@@ -220,6 +237,9 @@
 				Base,
 			);
 			mainGroup = C5C9D0152BF0F051002B9406;
+			packageReferences = (
+				C5C9D04E2BF0F231002B9406 /* XCRemoteSwiftPackageReference "ios-sdk" */,
+			);
 			productRefGroup = C5C9D01F2BF0F051002B9406 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -428,6 +448,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Redefine/Info.plist;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -443,11 +464,14 @@
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 14.0;
 				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = org.olafneumann.Redefine;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "Redefine-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -466,6 +490,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Redefine/Info.plist;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -481,11 +506,14 @@
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 14.0;
 				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = org.olafneumann.Redefine;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "Redefine-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -621,6 +649,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		C5C9D04E2BF0F231002B9406 /* XCRemoteSwiftPackageReference "ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/spotify/ios-sdk";
+			requirement = {
+				kind = revision;
+				revision = 9a46112bbf8ca7cb42fb28ede0a3fe9a85ab006c;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		C5C9D0502BF0F279002B9406 /* SpotifyiOS */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C5C9D04E2BF0F231002B9406 /* XCRemoteSwiftPackageReference "ios-sdk" */;
+			productName = SpotifyiOS;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = C5C9D0162BF0F051002B9406 /* Project object */;
 }

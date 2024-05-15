@@ -11,7 +11,7 @@ import os.log
 
 fileprivate let LOGGER = Logger(subsystem: "Redefine", category: "SpotifyConnector")
 
-class SpotifyConnector : NSObject, SPTAppRemoteDelegate {
+class SpotifyConnector : NSObject, SPTAppRemoteDelegate, SPTAppRemotePlayerStateDelegate {
     static let shared = SpotifyConnector()
 
     private static let kAccessTokenKey = "access-token-key"
@@ -58,12 +58,16 @@ class SpotifyConnector : NSObject, SPTAppRemoteDelegate {
         handleOpenOf(url: URLContexts.first?.url)
     }
     
-    func sceneDidBecomeActive(_ scene: UIScene) {
-        connect();
+    func appBecomesActive(_ scene: UIScene) {
+        if let _ = self.appRemote.connectionParameters.accessToken {
+            connect()
+        }
     }
     
-    func sceneWillResignActive(_ scene: UIScene) {
-        appRemote.disconnect()
+    func appWillResignActive(_ scene: UIScene) {
+        if appRemote.isConnected {
+            appRemote.disconnect()
+        }
     }
     
     func connect() {
@@ -76,6 +80,13 @@ class SpotifyConnector : NSObject, SPTAppRemoteDelegate {
         self.appRemote = appRemote
         LOGGER.debug("didEstablishConnection")
         //playerViewController.appRemoteConnected()
+        
+        appRemote.playerAPI?.delegate = self
+        appRemote.playerAPI?.subscribe(toPlayerState: { (result, error) in
+            if let error = error {
+                LOGGER.error("Error from player state: \(error.localizedDescription)")
+            }
+        })
     }
     
     func appRemote(_ appRemote: SPTAppRemote, didFailConnectionAttemptWithError error: Error?) {
@@ -94,5 +105,10 @@ class SpotifyConnector : NSObject, SPTAppRemoteDelegate {
             return navController.topViewController as! ViewController
         }
     }*/
-    
+ 
+    func playerStateDidChange(_ playerState: any SPTAppRemotePlayerState) {
+        LOGGER.debug("player state changed")
+        LOGGER.debug("Track name: \(playerState.track.name)")
+    }
+
 }

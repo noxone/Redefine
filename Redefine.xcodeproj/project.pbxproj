@@ -16,6 +16,9 @@
 		C5C9D0402BF0F053002B9406 /* RedefineUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5C9D03F2BF0F053002B9406 /* RedefineUITests.swift */; };
 		C5C9D0422BF0F053002B9406 /* RedefineUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5C9D0412BF0F053002B9406 /* RedefineUITestsLaunchTests.swift */; };
 		C5C9D0512BF0F279002B9406 /* SpotifyiOS in Frameworks */ = {isa = PBXBuildFile; productRef = C5C9D0502BF0F279002B9406 /* SpotifyiOS */; };
+		C5C9D0562BF13AED002B9406 /* SpotifyConnector.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5C9D0552BF13AED002B9406 /* SpotifyConnector.swift */; };
+		C5C9D0582BF13CBA002B9406 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5C9D0572BF13CBA002B9406 /* AppDelegate.swift */; };
+		C5C9D05A2BF13FCA002B9406 /* secrets.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5C9D0592BF13FCA002B9406 /* secrets.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +53,9 @@
 		C5C9D0412BF0F053002B9406 /* RedefineUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedefineUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		C5C9D0522BF0F31D002B9406 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		C5C9D0532BF0F471002B9406 /* Redefine-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Redefine-Bridging-Header.h"; sourceTree = "<group>"; };
+		C5C9D0552BF13AED002B9406 /* SpotifyConnector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotifyConnector.swift; sourceTree = "<group>"; };
+		C5C9D0572BF13CBA002B9406 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		C5C9D0592BF13FCA002B9406 /* secrets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = secrets.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,8 +110,10 @@
 			children = (
 				C5C9D0522BF0F31D002B9406 /* Info.plist */,
 				C5C9D0212BF0F051002B9406 /* RedefineApp.swift */,
+				C5C9D0572BF13CBA002B9406 /* AppDelegate.swift */,
 				C5C9D0232BF0F051002B9406 /* ContentView.swift */,
 				C5C9D0252BF0F051002B9406 /* Item.swift */,
+				C5C9D0542BF13AD8002B9406 /* models */,
 				C5C9D0272BF0F052002B9406 /* Assets.xcassets */,
 				C5C9D0292BF0F052002B9406 /* Redefine.entitlements */,
 				C5C9D02A2BF0F052002B9406 /* Preview Content */,
@@ -144,6 +152,15 @@
 			children = (
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C5C9D0542BF13AD8002B9406 /* models */ = {
+			isa = PBXGroup;
+			children = (
+				C5C9D0592BF13FCA002B9406 /* secrets.swift */,
+				C5C9D0552BF13AED002B9406 /* SpotifyConnector.swift */,
+			);
+			path = models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -284,7 +301,10 @@
 			files = (
 				C5C9D0242BF0F051002B9406 /* ContentView.swift in Sources */,
 				C5C9D0262BF0F051002B9406 /* Item.swift in Sources */,
+				C5C9D0562BF13AED002B9406 /* SpotifyConnector.swift in Sources */,
+				C5C9D0582BF13CBA002B9406 /* AppDelegate.swift in Sources */,
 				C5C9D0222BF0F051002B9406 /* RedefineApp.swift in Sources */,
+				C5C9D05A2BF13FCA002B9406 /* secrets.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -471,7 +491,7 @@
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_OBJC_BRIDGING_HEADER = "Redefine-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "Redefine/Redefine-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -513,7 +533,7 @@
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_OBJC_BRIDGING_HEADER = "Redefine-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "Redefine/Redefine-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

@@ -29,6 +29,9 @@ struct RedefineApp: App {
         WindowGroup {
             //ContentView()
             TestView()
+                .onOpenURL(perform: { url in
+                    SpotifyConnector.shared.handleOpenOf(url: url)
+                })
         }
         .modelContainer(sharedModelContainer)
     }

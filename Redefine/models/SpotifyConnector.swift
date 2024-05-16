@@ -74,6 +74,15 @@ class SpotifyConnector : NSObject, SPTAppRemoteDelegate, SPTAppRemotePlayerState
         appRemote.connect()
     }
     
+    func start() {
+        appRemote.authorizeAndPlayURI("") { success in
+            LOGGER.info("Success: \(success)")
+            if success {
+                self.connect()
+            }
+        }
+    }
+    
     // MARK: AppRemoteDelegate
     
     func appRemoteDidEstablishConnection(_ appRemote: SPTAppRemote) {

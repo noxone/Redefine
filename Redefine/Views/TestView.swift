@@ -14,7 +14,7 @@ struct TestView: View {
         VStack {
             Text("Hello, World!")
             Button(action: {
-                spotify.connect()
+                spotify.start() // connect()
             }, label: {
                 Text("Connect")
             })
